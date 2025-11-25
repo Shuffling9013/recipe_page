@@ -15,8 +15,8 @@
 :root {
   --font-size: clamp(
     16px,
-    calc(16px + (100vw - 375px) * (17 - 16) / (1440 - 375)),
-    17px
+    calc(16px + (100vw - 375px) * (18 - 16) / (1440 - 375)),
+    18px
   );
 
   --line-height-1: 1;
@@ -43,13 +43,26 @@
   --content-gap: 1.625em;
 }
 
-@media (min-width: 600px) {
+@container main (width > 45em) {
+  :root {
+    --line-height-1: 1.2;
+  }
+
+  main article {
+    margin: auto;
+  }
+
   .recipe {
+    border-radius: 1.25em;
     padding-block: var(--content-space);
   }
 
   .recipe figure {
     padding-inline: var(--content-space);
+  }
+
+  .recipe figure img {
+    border-radius: 0.75em;
   }
 }
 
@@ -65,11 +78,14 @@ body {
 
 main {
   display: flex;
+  align-items: center;
+  flex-flow: column wrap;
+  container: main / size;
+
   height: 100vh;
 }
 
 main article {
-  margin: auto;
   max-width: 45em;
 }
 
