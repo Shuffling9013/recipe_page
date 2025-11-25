@@ -11,3 +11,8 @@ img {
   height: auto;
   width: auto;
 }
+
+ul,
+ol {
+  padding: 0;
+}

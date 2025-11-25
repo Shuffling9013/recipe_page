@@ -20,14 +20,15 @@
   );
 
   --line-height-1: 1;
-  --line-height-2: 1.5;
+  --line-height-2: 1.6;
 
   --font-family: Outfit, Arial, Helvetica, sans-serif;
 
-  --font-1: 400 2em / var(--line-height-1) "Young Serif", var(--font-family);
+  --font-1:
+    400 2.125em / var(--line-height-1) "Young Serif", var(--font-family);
   --font-2: 400 1.75em / var(--line-height-1) "Young Serif", var(--font-family);
   --font-3: 700 1.25em / var(--line-height-2) var(--font-family);
-  --font-4: 400 1em / var(--line-height-2) var(--font-family);
+  --font-4: 600 1.125em / var(--line-height-2) var(--font-family);
 
   --white: hsl(0 0% 100%);
   --stone-100: hsl(30 54% 90%);
@@ -38,33 +39,33 @@
   --rose-800: hsl(332 51% 32%);
   --rose-50: hsl(330 100% 98%);
 
-  --content-padding: 1.875em;
+  --content-space: 1.875em;
   --content-gap: 1.625em;
 }
 
 @media (min-width: 600px) {
   .recipe {
-    padding-block: var(--content-padding);
+    padding-block: var(--content-space);
   }
 
   .recipe figure {
-    padding-inline: var(--content-padding);
+    padding-inline: var(--content-space);
   }
 }
 
 body {
-  height: 100vh;
-
   font-weight: 400;
   font-size: var(--font-size);
   line-height: var(--line-height-2);
   font-family: var(--font-family);
+  color: var(--stone-600);
 
   background-color: var(--stone-100);
 }
 
 main {
   display: flex;
+  height: 100vh;
 }
 
 main article {
@@ -80,25 +81,117 @@ main article {
   background-color: var(--white);
 }
 
+.recipe hr {
+  margin-inline: var(--content-space);
+  height: 0.1em;
+  border: none;
+  background-color: var(--stone-150);
+}
+
 .recipe header,
 .recipe section {
   display: flex;
   flex-flow: column wrap;
   gap: var(--content-gap);
-  padding-inline: var(--content-padding);
+  padding-inline: var(--content-space);
 }
 
 .recipe h1 {
   /* eslint-disable-next-line css/no-invalid-properties, css/font-family-fallbacks */
   font: var(--font-1);
+  color: var(--stone-900);
 }
 
 .recipe h2 {
   /* eslint-disable-next-line css/no-invalid-properties, css/font-family-fallbacks */
   font: var(--font-2);
+  color: var(--brown-800);
 }
 
 .recipe h3 {
   /* eslint-disable-next-line css/no-invalid-properties, css/font-family-fallbacks */
   font: var(--font-3);
+  color: var(--rose-800);
+}
+
+.recipe ul li {
+  position: relative;
+  padding-inline-start: 2.5em;
+  margin-block-start: 0.5em;
+  list-style: none;
+}
+
+.recipe ul li::before {
+  content: "";
+
+  display: block;
+  height: 0.25em;
+  width: 0.25em;
+
+  position: absolute;
+  left: 0.5em;
+  top: 50%;
+  transform: translateY(-50%);
+
+  border-radius: 100%;
+  background-color: var(--stone-600);
+}
+
+.recipe header ul {
+  padding-block: 1.325em;
+  padding-inline: 1.5em;
+
+  border-radius: 0.75em;
+  background-color: var(--rose-50);
+}
+
+.recipe section ol {
+  padding-inline-start: 1.5em;
+}
+
+.recipe section ol li {
+  padding-inline-start: 1.25em;
+}
+
+/* eslint-disable-next-line css/use-baseline */
+.recipe section ol li::marker {
+  font-weight: 600;
+  color: var(--brown-800);
+}
+
+.recipe table {
+  border-collapse: collapse;
+}
+
+.recipe table caption {
+  text-align: start;
+}
+
+.recipe table col {
+  width: 50%;
+}
+
+.recipe table tr {
+  border-bottom: 0.1em solid var(--stone-150);
+}
+
+.recipe table tr:last-child {
+  border-bottom: none;
+}
+
+.recipe table th {
+  padding-inline-start: 1.5em;
+  text-align: start;
+
+  /* eslint-disable-next-line css/no-invalid-properties, css/font-family-fallbacks */
+  font: var(--font-4);
+  font-weight: 400;
+}
+
+.recipe table td {
+  text-align: start;
+
+  /* eslint-disable-next-line css/no-invalid-properties, css/font-family-fallbacks */
+  font: var(--font-4);
+  color: var(--brown-800);
 }
