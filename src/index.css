@@ -1,0 +1,104 @@
+@font-face {
+  font-family: "Young Serif";
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/young-serif/YoungSerif-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Outfit;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("/fonts/outfit/Outfit-VariableFont_wght.ttf") format("truetype");
+}
+
+:root {
+  --font-size: clamp(
+    16px,
+    calc(16px + (100vw - 375px) * (17 - 16) / (1440 - 375)),
+    17px
+  );
+
+  --line-height-1: 1;
+  --line-height-2: 1.5;
+
+  --font-family: Outfit, Arial, Helvetica, sans-serif;
+
+  --font-1: 400 2em / var(--line-height-1) "Young Serif", var(--font-family);
+  --font-2: 400 1.75em / var(--line-height-1) "Young Serif", var(--font-family);
+  --font-3: 700 1.25em / var(--line-height-2) var(--font-family);
+  --font-4: 400 1em / var(--line-height-2) var(--font-family);
+
+  --white: hsl(0 0% 100%);
+  --stone-100: hsl(30 54% 90%);
+  --stone-150: hsl(30 18% 87%);
+  --stone-600: hsl(30 10% 34%);
+  --stone-900: hsl(24 5% 18%);
+  --brown-800: hsl(14 45% 36%);
+  --rose-800: hsl(332 51% 32%);
+  --rose-50: hsl(330 100% 98%);
+
+  --content-padding: 1.875em;
+  --content-gap: 1.625em;
+}
+
+@media (min-width: 600px) {
+  .recipe {
+    padding-block: var(--content-padding);
+  }
+
+  .recipe figure {
+    padding-inline: var(--content-padding);
+  }
+}
+
+body {
+  height: 100vh;
+
+  font-weight: 400;
+  font-size: var(--font-size);
+  line-height: var(--line-height-2);
+  font-family: var(--font-family);
+
+  background-color: var(--stone-100);
+}
+
+main {
+  display: flex;
+}
+
+main article {
+  margin: auto;
+  max-width: 45em;
+}
+
+.recipe {
+  display: flex;
+  flex-flow: column wrap;
+  gap: var(--content-gap);
+
+  background-color: var(--white);
+}
+
+.recipe header,
+.recipe section {
+  display: flex;
+  flex-flow: column wrap;
+  gap: var(--content-gap);
+  padding-inline: var(--content-padding);
+}
+
+.recipe h1 {
+  /* eslint-disable-next-line css/no-invalid-properties, css/font-family-fallbacks */
+  font: var(--font-1);
+}
+
+.recipe h2 {
+  /* eslint-disable-next-line css/no-invalid-properties, css/font-family-fallbacks */
+  font: var(--font-2);
+}
+
+.recipe h3 {
+  /* eslint-disable-next-line css/no-invalid-properties, css/font-family-fallbacks */
+  font: var(--font-3);
+}
